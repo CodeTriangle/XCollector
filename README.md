@@ -15,5 +15,3 @@ To use <b>XCollector</b> and inventory your collections just:
 * Add a title,
 * Add a picture (Optional, but it makes everything look pretty),
 * And add a description (Optional, but it makes everything easier to identify).
-
-The brilliance of <b>XCollector</b> is that 
