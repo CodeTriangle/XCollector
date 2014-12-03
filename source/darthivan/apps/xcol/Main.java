@@ -1,7 +1,6 @@
 package darthivan.apps.xcol;
 
 import darthivan.apps.xcol.GUI.OpenPanel;
-import darthivan.apps.xcol.GUI.SelectFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,12 +8,11 @@ import java.io.IOException;
 
 public class Main {
     public static JFrame openFrame;
-    public static JFrame selectFrame;
+    public static JFrame collectionFrame;
     public static JPanel openPanel;
 
     public static void main(String[] args) {
         openFrame = new JFrame("XCollector");
-        selectFrame = new SelectFrame();
         try {
             openPanel = new OpenPanel();
         } catch (IOException e) {
@@ -43,7 +41,5 @@ public class Main {
 
         openFrame.setVisible(false);
         openFrame.dispose();
-
-        selectFrame.setVisible(true);
     }
 }

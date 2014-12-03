@@ -1,5 +1,7 @@
 package darthivan.apps.xcol.GUI;
 
+import darthivan.apps.xcol.Variables;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +13,7 @@ public class OpenPanel extends JPanel{
     Image splash;
 
     public OpenPanel() throws IOException {
-        splash = ImageIO.read(new File(System.getProperty("user.dir") + "\\source\\darthivan\\apps\\xcol\\GUI\\image\\splash.png"));
+        splash = ImageIO.read(new File(Variables.SPLASH_FILE));
     }
 
     @Override
