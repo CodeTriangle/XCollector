@@ -30,9 +30,6 @@ public class Main {
         openFrame.setVisible(true);
         openFrame.setResizable(false);
 
-        long nanoTime = System.nanoTime();
-        boolean nanoTimeReached = false;
-
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

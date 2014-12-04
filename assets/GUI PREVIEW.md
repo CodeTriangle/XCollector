@@ -19,4 +19,6 @@ Below is the clarification for each. This goes from right to left, up to down, a
         * DescriptionPanel : JPanel
             * TitleField : JTextField
             * DescriptionArea : JTextArea
-            * CollectedButton : JButton
+            * CCPanel : JPanel
+                * ClassPanel : JPanel
+                * CollectedButton: JButton
