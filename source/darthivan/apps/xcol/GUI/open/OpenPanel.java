@@ -1,4 +1,4 @@
-package darthivan.apps.xcol.GUI;
+package darthivan.apps.xcol.GUI.open;
 
 import darthivan.apps.xcol.Variables;
 
