@@ -50,6 +50,10 @@ public class CollectionFrame extends JFrame {
         seriesList.setFont(Variables.TNR);
         itemList.setFont(Variables.TNR);
 
+        openButton.setBackground(new Color(86, 209, 68));
+        createButton.setBackground(new Color(49, 57, 209));
+        deleteButton.setBackground(new Color(255, 85, 60));
+
         this.setLayout(new BorderLayout());
         listPanel.setLayout(new GridLayout(1, 3, 10, 10));
         itemPanel.setLayout(new BorderLayout());
