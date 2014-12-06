@@ -1,5 +1,6 @@
 package darthivan.apps.xcol;
 
+import java.awt.*;
 import java.io.File;
 
 public class Variables {
@@ -14,4 +15,6 @@ public class Variables {
     public static final File SOURCE_DIR_F = new File(SOURCE_DIR);
     public static final File DATA_DIR_F = new File(DATA_DIR);
     public static final File SPLASH_FILE_F = new File(SPLASH_FILE);
+
+    public static final Font TNR = new Font("Times New Roman", Font.PLAIN, 15);
 }
