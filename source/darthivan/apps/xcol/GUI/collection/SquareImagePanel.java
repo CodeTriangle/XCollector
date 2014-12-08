@@ -23,8 +23,8 @@ public class SquareImagePanel extends JPanel{
         super.paintComponent(g);
 
         if (mode == SquareImagePanelMode.TALL)
-            g.drawImage(image, 0, 10, this.getHeight(), this.getHeight() - 10, null);
+            g.drawImage(image, (int) ((.5 * this.getWidth()) - (.5 * image.getWidth(null))), 5, this.getHeight(), this.getHeight() - 5, null);
         else if (mode == SquareImagePanelMode.WIDE)
-            g.drawImage(image, 0, 10, this.getWidth(), this.getWidth() - 10, null);
+            g.drawImage(image, (int) ((.5 * this.getWidth()) - (.5 * image.getWidth(null))), 5, this.getWidth(), this.getWidth() - 5, null);
     }
 }
