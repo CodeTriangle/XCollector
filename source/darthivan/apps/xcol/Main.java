@@ -1,6 +1,6 @@
 package darthivan.apps.xcol;
 
-import darthivan.apps.xcol.GUI.collection.CollectionFrame;
+import darthivan.apps.xcol.GUI.collection.*;
 import darthivan.apps.xcol.GUI.open.*;
 
 import javax.swing.*;

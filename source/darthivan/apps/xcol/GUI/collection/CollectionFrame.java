@@ -1,5 +1,6 @@
 package darthivan.apps.xcol.GUI.collection;
 
+import darthivan.apps.xcol.GUI.open.ImagePanel;
 import darthivan.apps.xcol.Variables;
 
 import javax.swing.*;
@@ -7,12 +8,16 @@ import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 public class CollectionFrame extends JFrame {
 
     public JPanel listPanel;
+    public JPanel itemButtonPanel;
     public JPanel itemPanel;
     public JPanel buttonPanel;
+    public JPanel imagePanel;
+    public JPanel detailsPanel;
 
     public String collectionArray[];
     public String seriesArray[];
@@ -26,7 +31,13 @@ public class CollectionFrame extends JFrame {
     public JButton deleteButton;
     public JButton createButton;
 
-    public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    public JTextField titleField;
+
+    public JTextArea descriptionArea;
+
+    public JCheckBox collectedBox;
+
+    public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
         super(title);
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
@@ -35,8 +46,11 @@ public class CollectionFrame extends JFrame {
         itemArray = new String[] {"1900 Penny", "1987 Nickel", "2007 Quarter"};
 
         listPanel = new JPanel();
+        itemButtonPanel = new JPanel();
         itemPanel = new JPanel();
         buttonPanel = new JPanel();
+        imagePanel = new SquareImagePanel(Variables.PLACEHOLDER_FILE, SquareImagePanelMode.TALL);
+        detailsPanel = new JPanel();
 
         collectionList = new JList<String>(collectionArray);
         seriesList = new JList<String>(seriesArray);
@@ -46,18 +60,45 @@ public class CollectionFrame extends JFrame {
         deleteButton = new JButton("Delete");
         createButton = new JButton("Create");
 
+        titleField = new JTextField("1900 Penny");
+        descriptionArea = new JTextArea("I bought this from a shady street vendor in 2000. He sold me this for 5" +
+                "dollars. Said it was a rare coin. I trusted him.");
+
+        collectedBox = new JCheckBox("Collected?", false);
+
         collectionList.setFont(Variables.TNR);
         seriesList.setFont(Variables.TNR);
         itemList.setFont(Variables.TNR);
 
-        openButton.setBackground(new Color(86, 209, 68));
-        createButton.setBackground(new Color(49, 57, 209));
-        deleteButton.setBackground(new Color(255, 85, 60));
+        titleField.setFont(Variables.TNR_LARGE);
 
-        this.setLayout(new BorderLayout());
-        listPanel.setLayout(new GridLayout(1, 3, 10, 10));
-        itemPanel.setLayout(new BorderLayout());
+        collectionList.setBackground(new Color(135, 135, 135));
+        seriesList.setBackground(new Color(155, 155, 155));
+        itemList.setBackground(new Color(175, 175, 175));
+
+        collectionList.setForeground(new Color(235, 235, 235));
+        seriesList.setForeground(new Color(245, 245, 245));
+        itemList.setForeground(new Color(255, 255, 255));
+
+        openButton.setBackground(new Color(0, 200, 0));
+        createButton.setBackground(new Color(0, 0, 200));
+        deleteButton.setBackground(new Color(240, 0, 0));
+
+        titleField.setBackground(new Color(156, 156, 156));
+        titleField.setForeground(new Color(255,255,255));
+
+        descriptionArea.setBackground(new Color(155, 155, 155));
+        descriptionArea.setForeground(new Color(255,255,255));
+
+        this.setLayout(new GridLayout(2,1));
+        itemButtonPanel.setLayout(new BorderLayout());
+        listPanel.setLayout(new GridLayout(1, 5, 10, 10));
+        itemPanel.setLayout(new GridLayout());
         buttonPanel.setLayout(new FlowLayout());
+        detailsPanel.setLayout(new BorderLayout(10, 10));
+
+        descriptionArea.setLineWrap(true);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
@@ -66,11 +107,21 @@ public class CollectionFrame extends JFrame {
         listPanel.add(seriesList);
         listPanel.add(itemList);
 
+        itemPanel.add(imagePanel);
+        itemPanel.add(detailsPanel);
+
         buttonPanel.add(openButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(createButton);
 
+        detailsPanel.add(titleField, BorderLayout.NORTH);
+        detailsPanel.add(descriptionArea, BorderLayout.CENTER);
+        detailsPanel.add(collectedBox, BorderLayout.SOUTH);
+
+        itemButtonPanel.add(itemPanel, BorderLayout.CENTER);
+        itemButtonPanel.add(buttonPanel, BorderLayout.SOUTH);
+
         this.add(listPanel, BorderLayout.CENTER);
-        this.add(buttonPanel, BorderLayout.SOUTH);
+        this.add(itemButtonPanel, BorderLayout.SOUTH);
     }
 }

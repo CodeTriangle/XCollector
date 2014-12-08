@@ -1,5 +1,7 @@
 package darthivan.apps.xcol.GUI.open;
 
+import darthivan.apps.xcol.Variables;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -10,7 +12,7 @@ public class OpenFrame extends JFrame {
 
     public OpenFrame() throws HeadlessException, IOException {
 
-        openPanel = new OpenPanel();
+        openPanel = new ImagePanel(Variables.SPLASH_FILE, 400, 300);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
