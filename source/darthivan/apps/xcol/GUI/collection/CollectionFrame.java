@@ -4,6 +4,7 @@ import darthivan.apps.xcol.GUI.open.ImagePanel;
 import darthivan.apps.xcol.Variables;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
@@ -37,6 +38,8 @@ public class CollectionFrame extends JFrame {
 
     public JCheckBox collectedBox;
 
+    public Border line;
+
     public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
         super(title);
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -61,10 +64,12 @@ public class CollectionFrame extends JFrame {
         createButton = new JButton("Create");
 
         titleField = new JTextField("1900 Penny");
-        descriptionArea = new JTextArea("I bought this from a shady street vendor in 2000. He sold me this for 5" +
+        descriptionArea = new JTextArea("I bought this from a shady street vendor in 2000. He sold me this for 5 " +
                 "dollars. Said it was a rare coin. I trusted him.");
 
         collectedBox = new JCheckBox("Collected?", false);
+
+        line = BorderFactory.createLineBorder(new Color(105, 105, 105));
 
         collectionList.setFont(Variables.TNR);
         seriesList.setFont(Variables.TNR);
@@ -89,6 +94,13 @@ public class CollectionFrame extends JFrame {
 
         descriptionArea.setBackground(new Color(155, 155, 155));
         descriptionArea.setForeground(new Color(255,255,255));
+
+        collectionList.setBorder(line);
+        seriesList.setBorder(line);
+        itemList.setBorder(line);
+
+        titleField.setBorder(line);
+        descriptionArea.setBorder(line);
 
         this.setLayout(new GridLayout(2,1));
         itemButtonPanel.setLayout(new BorderLayout());
