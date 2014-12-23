@@ -52,7 +52,7 @@ public class CollectionFrame extends JFrame {
         itemButtonPanel = new JPanel();
         itemPanel = new JPanel();
         buttonPanel = new JPanel();
-        imagePanel = new SquareImagePanel(Variables.PLACEHOLDER_FILE, SquareImagePanelMode.TALL);
+        imagePanel = new SquareImagePanel(Variables.PLACEHOLDER_FILE, SquareImagePanel.TALL);
         detailsPanel = new JPanel();
 
         collectionList = new JList<String>(collectionArray);
