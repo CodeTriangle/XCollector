@@ -42,6 +42,7 @@ public class CollectionFrame extends JFrame {
 
     public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
         super(title);
+
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
         collectionArray = new String[] {"Trading Cards", "Coins"};
