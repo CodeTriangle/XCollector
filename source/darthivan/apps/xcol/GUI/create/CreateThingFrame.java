@@ -21,7 +21,7 @@ public class CreateThingFrame extends JFrame {
 
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
-        thingPanel = new JPanel(new GridLayout(1, 3));
+        thingPanel = new JPanel(new GridLayout(1, 3, 10, 10));
         buttonPanel = new JPanel(new GridLayout(1, 2));
 
         collectionButton = new JRadioButton("Collection");
@@ -32,6 +32,9 @@ public class CreateThingFrame extends JFrame {
         cancelButton = new JButton("Cancel");
 
         thingGroup = new ButtonGroup();
+
+        okButton.setBackground(new Color(0, 203, 0));
+        cancelButton.setBackground(new Color(218, 83, 70));
 
         this.setLayout(new GridLayout(2, 1));
         this.setLocationRelativeTo(null);
