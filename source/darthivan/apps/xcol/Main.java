@@ -1,6 +1,7 @@
 package darthivan.apps.xcol;
 
 import darthivan.apps.xcol.GUI.collection.*;
+import darthivan.apps.xcol.GUI.create.CreateThingFrame;
 import darthivan.apps.xcol.GUI.open.*;
 
 import javax.swing.*;
@@ -11,10 +12,12 @@ import java.io.IOException;
 public class Main {
     public static JFrame openFrame;
     public static JFrame collectionFrame;
+    public static JFrame createThingFrame;
 
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException, InterruptedException {
-            openFrame = new OpenFrame();
-            collectionFrame = new CollectionFrame("XCollector");
+        openFrame = new OpenFrame();
+        collectionFrame = new CollectionFrame("XCollector");
+        createThingFrame = new CreateThingFrame("Create What?");
 
         openFrame.setVisible(true);
 
@@ -28,5 +31,6 @@ public class Main {
 
         openFrame.setVisible(false);
         collectionFrame.setVisible(true);
+        createThingFrame.setVisible(true);
     }
 }
