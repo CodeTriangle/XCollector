@@ -1,5 +1,6 @@
 package darthivan.apps.xcol.GUI.collection;
 
+import darthivan.apps.xcol.GUI.create.CreateThingFrame;
 import darthivan.apps.xcol.GUI.open.ImagePanel;
 import darthivan.apps.xcol.Variables;
 
@@ -8,10 +9,14 @@ import javax.swing.border.Border;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class CollectionFrame extends JFrame {
+public class CollectionFrame extends JFrame implements ActionListener {
+
+    public JFrame createFrame;
 
     public JPanel listPanel;
     public JPanel itemButtonPanel;
@@ -48,6 +53,8 @@ public class CollectionFrame extends JFrame {
         collectionArray = new String[] {"Trading Cards", "Coins"};
         seriesArray = new String[] {"Canada", "Japan", "England", "Sweden"};
         itemArray = new String[] {"1900 Penny", "1987 Nickel", "2007 Quarter"};
+
+        createFrame = new CreateThingFrame("Create What?");
 
         listPanel = new JPanel();
         itemButtonPanel = new JPanel();
@@ -136,5 +143,24 @@ public class CollectionFrame extends JFrame {
 
         this.add(listPanel, BorderLayout.CENTER);
         this.add(itemButtonPanel, BorderLayout.SOUTH);
+
+        openButton.addActionListener(this);
+        deleteButton.addActionListener(this);
+        createButton.addActionListener(this);
+    }
+
+    public void openCreateGUI() {
+        createFrame.setVisible(true);
+        System.out.println("Create Button Pressed");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Open"))
+            System.out.println("Open Button Pressed");
+        else if (e.getActionCommand().equals("Delete"))
+            System.out.println("Delete Button Pressed");
+        else if (e.getActionCommand().equals("Create"))
+            openCreateGUI();
     }
 }

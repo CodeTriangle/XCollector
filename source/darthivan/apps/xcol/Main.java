@@ -17,7 +17,6 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException, InterruptedException {
         openFrame = new OpenFrame();
         collectionFrame = new CollectionFrame("XCollector");
-        createThingFrame = new CreateThingFrame("Create What?");
 
         openFrame.setVisible(true);
 
@@ -31,6 +30,5 @@ public class Main {
 
         openFrame.setVisible(false);
         collectionFrame.setVisible(true);
-        createThingFrame.setVisible(true);
     }
 }

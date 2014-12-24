@@ -39,6 +39,7 @@ public class CreateThingFrame extends JFrame {
         this.setLayout(new GridLayout(2, 1));
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         thingGroup.add(collectionButton);
         thingGroup.add(seriesButton);
