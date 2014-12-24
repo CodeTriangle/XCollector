@@ -149,7 +149,15 @@ public class CollectionFrame extends JFrame implements ActionListener {
         createButton.addActionListener(this);
     }
 
-    public void openCreateGUI() {
+    private void openFunction(){
+        System.out.println("Open Button Pressed");
+    }
+
+    private void deleteFunction() {
+        System.out.println("Delete Button Pressed");
+    }
+
+    private void createFunction() {
         createFrame.setVisible(true);
         System.out.println("Create Button Pressed");
     }
@@ -157,10 +165,10 @@ public class CollectionFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Open"))
-            System.out.println("Open Button Pressed");
+            openFunction();
         else if (e.getActionCommand().equals("Delete"))
-            System.out.println("Delete Button Pressed");
+            deleteFunction();
         else if (e.getActionCommand().equals("Create"))
-            openCreateGUI();
+            createFunction();
     }
 }
