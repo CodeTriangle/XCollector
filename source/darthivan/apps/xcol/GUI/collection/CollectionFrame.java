@@ -50,9 +50,9 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
-        collectionArray = new String[] {"Trading Cards", "Coins"};
-        seriesArray = new String[] {"Canada", "Japan", "England", "Sweden"};
-        itemArray = new String[] {"1900 Penny", "1987 Nickel", "2007 Quarter"};
+        collectionArray = new String[] {""};
+        seriesArray = new String[] {""};
+        itemArray = new String[] {""};
 
         createFrame = new CreateThingFrame("Create What?");
 

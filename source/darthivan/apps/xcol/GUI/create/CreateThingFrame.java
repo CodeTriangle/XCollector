@@ -2,8 +2,12 @@ package darthivan.apps.xcol.GUI.create;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class CreateThingFrame extends JFrame {
+public class CreateThingFrame extends JFrame implements ActionListener {
+    JFrame createCollectionFrame;
+
     JPanel thingPanel;
     JPanel buttonPanel;
 
@@ -16,10 +20,16 @@ public class CreateThingFrame extends JFrame {
 
     ButtonGroup thingGroup;
 
+    public static final String collectionButtonName = "collection";
+    public static final String seriesButtonName = "series";
+    public static final String itemButtonName = "item";
+
     public CreateThingFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         super(title);
 
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
+        createCollectionFrame = new CreateCollectionFrame("Create Collection");
 
         thingPanel = new JPanel(new GridLayout(1, 3, 10, 10));
         buttonPanel = new JPanel(new GridLayout(1, 2));
@@ -28,16 +38,19 @@ public class CreateThingFrame extends JFrame {
         seriesButton = new JRadioButton("Series");
         itemButton = new JRadioButton("Item");
 
+        collectionButton.setActionCommand(collectionButtonName);
+        seriesButton.setActionCommand(seriesButtonName);
+        itemButton.setActionCommand(itemButtonName);
+
         okButton = new JButton("OK");
         cancelButton = new JButton("Cancel");
 
         thingGroup = new ButtonGroup();
 
-        okButton.setBackground(new Color(0, 203, 0));
-        cancelButton.setBackground(new Color(218, 83, 70));
+        okButton.setBackground(new Color(0, 200, 0));
+        cancelButton.setBackground(new Color(240, 0, 0));
 
         this.setLayout(new GridLayout(2, 1));
-        this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -56,5 +69,48 @@ public class CreateThingFrame extends JFrame {
         this.add(buttonPanel);
 
         this.pack();
+        this.setLocationRelativeTo(null);
+
+        collectionButton.addActionListener(this);
+        seriesButton.addActionListener(this);
+        itemButton.addActionListener(this);
+        okButton.addActionListener(this);
+    }
+
+    private void collectionFunction() {
+        createCollectionFrame.setVisible(true);
+        this.setVisible(false);
+        System.out.println("CreateCollectionFrame Active");
+    }
+
+    private void seriesFunction() {
+        System.out.println("CreateSeriesFrame Active");
+    }
+
+    private void itemFunction() {
+        System.out.println("CreateItemFrame Active");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("OK")) {
+            switch (thingGroup.getSelection().getActionCommand()) {
+                case collectionButtonName :
+                    collectionFunction();
+                    break;
+                case seriesButtonName :
+                    seriesFunction();
+                    break;
+                case itemButtonName :
+                    itemFunction();
+                    break;
+                default :
+                    System.out.print("oops mistake");
+                    break;
+            }
+        }
+        else if (e.getActionCommand().equals("Cancel")) {
+            this.setVisible(false);
+        }
     }
 }

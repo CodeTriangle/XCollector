@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="XCollect:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/XCollect_jar</output-path>
+    <root id="archive" name="XCollect.jar">
+      <element id="module-output" name="XCollect" />
+    </root>
+  </artifact>
+</component>
