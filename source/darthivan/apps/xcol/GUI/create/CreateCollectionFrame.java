@@ -13,6 +13,8 @@ public class CreateCollectionFrame extends JFrame {
     JButton okButton;
     JButton cancelButton;
 
+    JPanel buttonPanel;
+
     public CreateCollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         super(title);
 
@@ -23,6 +25,8 @@ public class CreateCollectionFrame extends JFrame {
         okButton = new JButton("OK");
         cancelButton = new JButton("Cancel");
 
+        buttonPanel = new JPanel();
+
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
@@ -32,28 +36,27 @@ public class CreateCollectionFrame extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
+        buttonPanel.add(okButton);
+        buttonPanel.add(cancelButton);
+
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.0;
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 1;
         c.gridheight = 1;
-        this.add(new JLabel("Type Collection Name here:"), c);
+        this.add(new JLabel("Type Name here: "), c);
 
         c.weightx = 1.0;
         c.gridx = 1;
-        c.gridwidth = 4;
+        c.gridwidth = 2;
         this.add(titleField, c);
 
-        c.weightx = 0.0;
-        c.gridx = 2;
+        c.weightx = 1.0;
+        c.gridx = 0;
         c.gridy = 1;
-        c.gridwidth = 1;
-        this.add(okButton, c);
-
-        c.weightx = 0.0;
-        c.gridx = 3;
-        this.add(cancelButton, c);
+        c.gridwidth = 3;
+        this.add(buttonPanel, c);
 
         this.pack();
         this.setSize(500, this.getHeight());
