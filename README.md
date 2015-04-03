@@ -18,4 +18,11 @@ To use __XCollector__ and inventory your collections just:
 * Add a picture (Optional, but it makes everything look pretty),
 * And add a description (Optional, but it makes everything easier to identify).
 
+## Here's a checklist of all I have done so far.
+
+- [x] Main Collection GUI
+- [x] Creation GUI
+- [ ] Ability to create things
+- [x] Clickable buttons
+
 Although this project isn't done _yet_, I hope to have it all done in a couple of months. It's not hard, just tedious. But, you probably don't care. All you care about is the final product, and let me tell you... _it will be glorious_.
