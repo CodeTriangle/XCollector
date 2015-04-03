@@ -4,8 +4,11 @@ import darthivan.apps.xcol.Variables;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
-public class CreateCollectionFrame extends JFrame {
+public class CreateCollectionFrame extends JFrame implements ActionListener {
     JTextField titleField;
 
     JButton okButton;
@@ -62,7 +65,25 @@ public class CreateCollectionFrame extends JFrame {
         this.pack();
         this.setSize(500, this.getHeight());
         this.setLocationRelativeTo(null);
+
+        // Add action listener.
+        okButton.addActionListener(this);
+        cancelButton.addActionListener(this);
     }
 
-    //TODO: Add events to code.
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("OK")) {
+            if (!new File(Variables.DATA_DIR + "\\" + titleField.getText()).exists()) {
+                new File(Variables.DATA_DIR + "\\" + titleField.getText()).mkdir();
+                System.out.print("\"" + titleField.getText() + "\" collection created.");
+                this.setVisible(false);
+            }
+            else System.out.print("Collection already exists. Please retry.");
+        }
+        else if (e.getActionCommand().equals("Cancel"))
+            this.setVisible(false);
+            System.out.print("CreateCollectionFrame Closed.");
+    }
 }
