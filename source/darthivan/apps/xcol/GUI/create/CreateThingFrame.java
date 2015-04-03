@@ -14,6 +14,7 @@ public class CreateThingFrame extends JFrame implements ActionListener {
     JRadioButton collectionButton;
     JRadioButton seriesButton;
     JRadioButton itemButton;
+    JRadioButton imageButton;
 
     JButton okButton;
     JButton cancelButton;
@@ -23,6 +24,7 @@ public class CreateThingFrame extends JFrame implements ActionListener {
     public static final String collectionButtonName = "collection";
     public static final String seriesButtonName = "series";
     public static final String itemButtonName = "item";
+    public static final String imageButtonName = "image";
 
     public CreateThingFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         super(title);
@@ -37,6 +39,7 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         collectionButton = new JRadioButton("Collection");
         seriesButton = new JRadioButton("Series");
         itemButton = new JRadioButton("Item");
+        imageButton = new JRadioButton("Image");
 
         collectionButton.setActionCommand(collectionButtonName);
         seriesButton.setActionCommand(seriesButtonName);
@@ -57,10 +60,12 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         thingGroup.add(collectionButton);
         thingGroup.add(seriesButton);
         thingGroup.add(itemButton);
+        thingGroup.add(imageButton);
 
         thingPanel.add(collectionButton);
         thingPanel.add(seriesButton);
         thingPanel.add(itemButton);
+        thingPanel.add(imageButton);
 
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
@@ -91,6 +96,10 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         System.out.println("CreateItemFrame Active");
     }
 
+    private void imageFunction() {
+        System.out.println("CreateImageFrame Active");
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("OK")) {
@@ -103,6 +112,9 @@ public class CreateThingFrame extends JFrame implements ActionListener {
                     break;
                 case itemButtonName :
                     itemFunction();
+                    break;
+                case imageButtonName :
+                    imageFunction();
                     break;
                 default :
                     System.out.print("oops mistake");
