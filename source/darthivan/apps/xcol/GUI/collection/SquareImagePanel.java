@@ -14,8 +14,8 @@ public class SquareImagePanel extends JPanel{
     public static final int WIDE = 0;
     public static final int TALL = 1;
 
-    public SquareImagePanel(String str, int mod) throws IOException {
-        image = ImageIO.read(new File(str));
+    public SquareImagePanel(File file, int mod) throws IOException {
+        image = ImageIO.read(file);
         mode = mod;
     }
 

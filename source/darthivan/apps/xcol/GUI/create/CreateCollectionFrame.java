@@ -16,21 +16,26 @@ public class CreateCollectionFrame extends JFrame {
     public CreateCollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         super(title);
 
-        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); // Set look and feel to ♥Nimbus♥
 
-        titleField = new JTextField("");
+        titleField = new JTextField(""); // Place where you type the title of the collection in.
 
+        // OK and Cancel buttons.
         okButton = new JButton("OK", Variables.checkIcon);
         cancelButton = new JButton("Cancel", Variables.cancelIcon);
 
+        // Panel for the buttons.
         buttonPanel = new JPanel();
 
+        // Set this window's layout to GridBagLayout.
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
+        // Set window properties.
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
+        //  Add stuff.
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
 
@@ -53,6 +58,7 @@ public class CreateCollectionFrame extends JFrame {
         c.gridwidth = 3;
         this.add(buttonPanel, c);
 
+        // Window property stuff.
         this.pack();
         this.setSize(500, this.getHeight());
         this.setLocationRelativeTo(null);

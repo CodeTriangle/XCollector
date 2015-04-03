@@ -12,8 +12,9 @@ public class OpenFrame extends JFrame {
 
     public OpenFrame() throws HeadlessException, IOException {
 
-        openPanel = new ImagePanel(Variables.SPLASH_FILE, 400, 300);
+        openPanel = new ImagePanel(Variables.SPLASH_FILE_F, 400, 300); // Panel to hold the splash image.
 
+        // Set window parameters
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.setSize(400, 300);
@@ -22,6 +23,6 @@ public class OpenFrame extends JFrame {
         this.setResizable(false);
         this.setLayout(new BorderLayout());
 
-        this.add(openPanel);
+        this.add(openPanel); // Put the splash image up.
     }
 }

@@ -11,12 +11,12 @@ public class ImagePanel extends JPanel{
     Image image;
     int w, h;
 
-    public ImagePanel(String str) throws IOException {
-        image = ImageIO.read(new File(str));
+    public ImagePanel(File file) throws IOException {
+        image = ImageIO.read(file);
     }
 
-    public ImagePanel(String str, int wid, int hei) throws IOException {
-        image = ImageIO.read(new File(str));
+    public ImagePanel(File file, int wid, int hei) throws IOException {
+        image = ImageIO.read(file);
         w = wid;
         h = hei;
     }

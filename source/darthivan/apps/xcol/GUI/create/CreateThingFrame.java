@@ -31,32 +31,38 @@ public class CreateThingFrame extends JFrame implements ActionListener {
     public CreateThingFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         super(title);
 
-        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); // Set look and feel to ♥Nimbus♥
 
+        // Initiate Create dialogues
         createCollectionFrame = new CreateCollectionFrame("Create Collection");
 
-        thingPanel = new JPanel(new FlowLayout());
-        buttonPanel = new JPanel(new GridLayout(1, 2));
+        thingPanel = new JPanel(new FlowLayout()); // The panel of things you can create.
+        buttonPanel = new JPanel(new FlowLayout()); // The panel that holds the buttons.
 
+        // Initiate the radio buttons for the things that you can create.
         collectionButton = new JRadioButton("Collection");
         seriesButton = new JRadioButton("Series");
         itemButton = new JRadioButton("Item");
         imageButton = new JRadioButton("Image");
 
+        // Add the action commands for the buttons.
         collectionButton.setActionCommand(collectionButtonName);
         seriesButton.setActionCommand(seriesButtonName);
         itemButton.setActionCommand(itemButtonName);
         imageButton.setActionCommand(imageButtonName);
 
+        // Initiate the buttons for okay and cancel.
         okButton = new JButton("OK", Variables.checkIcon);
         cancelButton = new JButton("Cancel", Variables.cancelIcon);
 
-        thingGroup = new ButtonGroup();
+        thingGroup = new ButtonGroup(); // Makes the radio buttons work.
 
+        // Set window properties.
         this.setLayout(new GridLayout(2, 1));
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        // Add stuff to stuff.
         thingGroup.add(collectionButton);
         thingGroup.add(seriesButton);
         thingGroup.add(itemButton);
@@ -73,15 +79,19 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         this.add(thingPanel);
         this.add(buttonPanel);
 
-        this.pack();
-        this.setLocationRelativeTo(null);
+        this.pack(); //Put this window at the absolute minimum size it will go.
+        this.setLocationRelativeTo(null); // Center this window in the screen.
 
+        // Add action listeners.
         collectionButton.addActionListener(this);
         seriesButton.addActionListener(this);
         itemButton.addActionListener(this);
+        imageButton.addActionListener(this);
         okButton.addActionListener(this);
+        cancelButton.addActionListener(this);
     }
 
+    // Functions to open windows for creation frames.
     private void collectionFunction() {
         createCollectionFrame.setVisible(true);
         this.setVisible(false);
@@ -121,8 +131,9 @@ public class CreateThingFrame extends JFrame implements ActionListener {
                     break;
             }
         }
-        else if (e.getActionCommand().equals("Cancel")) {
+        if (e.getActionCommand().equals("Cancel")) {
             this.setVisible(false);
+            System.out.println("CreateThingFrame Closed");
         }
     }
 }
