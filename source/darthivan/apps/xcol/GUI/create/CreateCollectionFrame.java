@@ -22,16 +22,13 @@ public class CreateCollectionFrame extends JFrame {
 
         titleField = new JTextField("");
 
-        okButton = new JButton("OK");
-        cancelButton = new JButton("Cancel");
+        okButton = new JButton("OK", Variables.checkIcon);
+        cancelButton = new JButton("Cancel", Variables.cancelIcon);
 
         buttonPanel = new JPanel();
 
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-
-        okButton.setBackground(new Color(0, 200, 0));
-        cancelButton.setBackground(new Color(240, 0, 0));
 
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
