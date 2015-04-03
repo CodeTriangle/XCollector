@@ -18,6 +18,7 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
     public JFrame createFrame;
 
+    public JPanel labelPanel;
     public JPanel listPanel;
     public JPanel itemButtonPanel;
     public JPanel itemPanel;
@@ -56,6 +57,7 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
         createFrame = new CreateThingFrame("Create What?");
 
+        labelPanel = new JPanel();
         listPanel = new JPanel();
         itemButtonPanel = new JPanel();
         itemPanel = new JPanel();
@@ -67,9 +69,9 @@ public class CollectionFrame extends JFrame implements ActionListener {
         seriesList = new JList<String>(seriesArray);
         itemList = new JList<String>(itemArray);
 
-        openButton = new JButton("Open");
-        deleteButton = new JButton("Delete");
-        createButton = new JButton("Create");
+        openButton = new JButton("Open", Variables.checkIcon);
+        deleteButton = new JButton("Delete", Variables.cancelIcon);
+        createButton = new JButton("Create", Variables.addIcon);
 
         titleField = new JTextField("1900 Penny");
         descriptionArea = new JTextArea("I bought this from a shady street vendor in 2000. He sold me this for 5 " +
@@ -92,10 +94,6 @@ public class CollectionFrame extends JFrame implements ActionListener {
         collectionList.setForeground(new Color(235, 235, 235));
         seriesList.setForeground(new Color(245, 245, 245));
         itemList.setForeground(new Color(255, 255, 255));
-
-        openButton.setBackground(new Color(0, 200, 0));
-        createButton.setBackground(new Color(0, 0, 200));
-        deleteButton.setBackground(new Color(240, 0, 0));
 
         titleField.setBackground(new Color(156, 156, 156));
         titleField.setForeground(new Color(255,255,255));
@@ -141,8 +139,8 @@ public class CollectionFrame extends JFrame implements ActionListener {
         itemButtonPanel.add(itemPanel, BorderLayout.CENTER);
         itemButtonPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        this.add(listPanel, BorderLayout.CENTER);
-        this.add(itemButtonPanel, BorderLayout.SOUTH);
+        this.add(listPanel);
+        this.add(itemButtonPanel);
 
         openButton.addActionListener(this);
         deleteButton.addActionListener(this);

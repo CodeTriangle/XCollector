@@ -1,5 +1,7 @@
 package darthivan.apps.xcol.GUI.create;
 
+import darthivan.apps.xcol.Variables;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +35,7 @@ public class CreateThingFrame extends JFrame implements ActionListener {
 
         createCollectionFrame = new CreateCollectionFrame("Create Collection");
 
-        thingPanel = new JPanel(new GridLayout(1, 3, 10, 10));
+        thingPanel = new JPanel(new FlowLayout());
         buttonPanel = new JPanel(new GridLayout(1, 2));
 
         collectionButton = new JRadioButton("Collection");
@@ -44,14 +46,12 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         collectionButton.setActionCommand(collectionButtonName);
         seriesButton.setActionCommand(seriesButtonName);
         itemButton.setActionCommand(itemButtonName);
+        imageButton.setActionCommand(imageButtonName);
 
-        okButton = new JButton("OK");
-        cancelButton = new JButton("Cancel");
+        okButton = new JButton("OK", Variables.checkIcon);
+        cancelButton = new JButton("Cancel", Variables.cancelIcon);
 
         thingGroup = new ButtonGroup();
-
-        okButton.setBackground(new Color(0, 200, 0));
-        cancelButton.setBackground(new Color(240, 0, 0));
 
         this.setLayout(new GridLayout(2, 1));
         this.setResizable(false);
