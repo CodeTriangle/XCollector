@@ -1,7 +1,5 @@
 package darthivan.apps.xcol.GUI.collection;
 
-import darthivan.apps.xcol.Variables;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;

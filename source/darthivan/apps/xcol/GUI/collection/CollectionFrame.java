@@ -1,17 +1,13 @@
 package darthivan.apps.xcol.GUI.collection;
 
 import darthivan.apps.xcol.GUI.create.CreateThingFrame;
-import darthivan.apps.xcol.GUI.open.ImagePanel;
 import darthivan.apps.xcol.Variables;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.plaf.metal.DefaultMetalTheme;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 
 public class CollectionFrame extends JFrame implements ActionListener {
@@ -65,9 +61,9 @@ public class CollectionFrame extends JFrame implements ActionListener {
         imagePanel = new SquareImagePanel(Variables.PLACEHOLDER_FILE, SquareImagePanel.TALL);
         detailsPanel = new JPanel();
 
-        collectionList = new JList<String>(collectionArray);
-        seriesList = new JList<String>(seriesArray);
-        itemList = new JList<String>(itemArray);
+        collectionList = new JList<>(collectionArray);
+        seriesList = new JList<>(seriesArray);
+        itemList = new JList<>(itemArray);
 
         openButton = new JButton("Open", Variables.checkIcon);
         deleteButton = new JButton("Delete", Variables.cancelIcon);
@@ -117,7 +113,7 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
         descriptionArea.setLineWrap(true);
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
 

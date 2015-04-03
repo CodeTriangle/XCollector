@@ -1,12 +1,9 @@
 package darthivan.apps.xcol;
 
-import darthivan.apps.xcol.GUI.collection.*;
-import darthivan.apps.xcol.GUI.create.CreateThingFrame;
-import darthivan.apps.xcol.GUI.open.*;
+import darthivan.apps.xcol.GUI.collection.CollectionFrame;
+import darthivan.apps.xcol.GUI.open.OpenFrame;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 
 public class Main {

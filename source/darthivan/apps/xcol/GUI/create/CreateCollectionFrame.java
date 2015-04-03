@@ -1,7 +1,5 @@
 package darthivan.apps.xcol.GUI.create;
 
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
-import darthivan.apps.xcol.GUI.BlankLabel;
 import darthivan.apps.xcol.Variables;
 
 import javax.swing.*;
@@ -59,4 +57,6 @@ public class CreateCollectionFrame extends JFrame {
         this.setSize(500, this.getHeight());
         this.setLocationRelativeTo(null);
     }
+
+    //TODO: Add events to code.
 }
