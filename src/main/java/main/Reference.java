@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-public class Variables {
+public class Reference {
     public static final String USER_DIR = "src/main";
     public static final String SOURCE_DIR = USER_DIR + "/java";
     public static final String ASSET_DIR = USER_DIR + "/resources";
-    public static final String DATA_DIR = USER_DIR + "/data";
+    public static final String DATA_DIR = "data";
     public static final String SPLASH_FILE = ASSET_DIR + "/splash.png";
     public static final String PLACEHOLDER_FILE = ASSET_DIR + "/placeholder.png";
     public static final String ADD_FILE = ASSET_DIR + "/add.png";
@@ -31,4 +31,16 @@ public class Variables {
 
     public static final Font TNR = new Font("Times New Roman", Font.PLAIN, 15);
     public static final Font TNR_LARGE = new Font("Times New Roman", Font.BOLD, 25);
+
+    public static void pressedMessage (String s) {
+        System.out.printf("%s pressed", s);
+    }
+
+    public static void activeMessage (String s) {
+        System.out.printf("%s active", s);
+    }
+
+    public static void closedMessage (String s) {
+        System.out.printf("%s closed", s);
+    }
 }

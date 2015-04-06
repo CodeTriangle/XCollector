@@ -1,6 +1,6 @@
 package GUI.create;
 
-import main.Variables;
+import main.Reference;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,8 +52,8 @@ public class CreateThingFrame extends JFrame implements ActionListener {
         imageButton.setActionCommand(imageButtonName);
 
         // Initiate the buttons for okay and cancel.
-        okButton = new JButton("OK", Variables.checkIcon);
-        cancelButton = new JButton("Cancel", Variables.cancelIcon);
+        okButton = new JButton("OK", Reference.checkIcon);
+        cancelButton = new JButton("Cancel", Reference.cancelIcon);
 
         thingGroup = new ButtonGroup(); // Makes the radio buttons work.
 
@@ -95,19 +95,19 @@ public class CreateThingFrame extends JFrame implements ActionListener {
     private void collectionFunction() {
         createCollectionFrame.setVisible(true);
         this.setVisible(false);
-        System.out.println("CreateCollectionFrame Active");
+        Reference.activeMessage("CreateCollectionFrame");
     }
 
     private void seriesFunction() {
-        System.out.println("CreateSeriesFrame Active");
+        Reference.activeMessage("CreateSeriesFrame");
     }
 
     private void itemFunction() {
-        System.out.println("CreateItemFrame Active");
+        Reference.activeMessage("CreateItemFrame");
     }
 
     private void imageFunction() {
-        System.out.println("CreateImageFrame Active");
+        Reference.activeMessage("CreateImageFrame");
     }
 
     @Override

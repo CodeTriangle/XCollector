@@ -1,6 +1,6 @@
 package GUI.open;
 
-import main.Variables;
+import main.Reference;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class OpenFrame extends JFrame {
 
     public OpenFrame() throws HeadlessException, IOException {
 
-        openPanel = new ImagePanel(Variables.SPLASH_FILE_F, 400, 300); // Panel to hold the splash image.
+        openPanel = new ImagePanel(Reference.SPLASH_FILE_F, 400, 300); // Panel to hold the splash image.
 
         // Set window parameters
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

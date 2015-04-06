@@ -20,8 +20,8 @@ public class Main {
         Thread.sleep(1000L); // Sleep 1 second to show the splash screen
 
         // Create the data directory if it doesn't already exist
-        if (!Variables.DATA_DIR_F.exists()) {
-            if (Variables.DATA_DIR_F.mkdir()) {
+        if (!Reference.DATA_DIR_F.exists()) {
+            if (Reference.DATA_DIR_F.mkdir()) {
                 System.out.println("Data directory created.");
             }
         }

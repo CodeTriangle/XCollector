@@ -3,6 +3,9 @@ apply plugin: 'application'
 
 mainClassName = 'main.Main'
 
+// Run XCollector
+task xcol (dependsOn: ['build', 'run'])
+
 // Jar Specifications
 jar {
     baseName = 'XCollector'

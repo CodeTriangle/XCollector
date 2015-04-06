@@ -1,6 +1,6 @@
 package GUI.create;
 
-import main.Variables;
+import main.Reference;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,8 +24,8 @@ public class CreateCollectionFrame extends JFrame implements ActionListener {
         titleField = new JTextField(""); // Place where you type the title of the collection in.
 
         // OK and Cancel buttons.
-        okButton = new JButton("OK", Variables.checkIcon);
-        cancelButton = new JButton("Cancel", Variables.cancelIcon);
+        okButton = new JButton("OK", Reference.checkIcon);
+        cancelButton = new JButton("Cancel", Reference.cancelIcon);
 
         // Panel for the buttons.
         buttonPanel = new JPanel();
@@ -75,8 +75,8 @@ public class CreateCollectionFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("OK")) {
-            if (!new File(Variables.DATA_DIR + "\\" + titleField.getText()).exists()) {
-                new File(Variables.DATA_DIR + "\\" + titleField.getText()).mkdir();
+            if (!new File(Reference.DATA_DIR + "\\" + titleField.getText()).exists()) {
+                new File(Reference.DATA_DIR + "\\" + titleField.getText()).mkdir();
                 System.out.print("\"" + titleField.getText() + "\" collection created.");
                 this.setVisible(false);
             }
@@ -84,6 +84,6 @@ public class CreateCollectionFrame extends JFrame implements ActionListener {
         }
         else if (e.getActionCommand().equals("Cancel"))
             this.setVisible(false);
-            System.out.print("CreateCollectionFrame Closed.");
+            Reference.closedMessage("CreateCollectionFrame");
     }
 }
