@@ -1,7 +1,7 @@
-package darthivan.apps.xcol;
+package main;
 
-import darthivan.apps.xcol.GUI.collection.CollectionFrame;
-import darthivan.apps.xcol.GUI.open.OpenFrame;
+import GUI.collection.CollectionFrame;
+import GUI.open.OpenFrame;
 
 import javax.swing.*;
 import java.io.IOException;

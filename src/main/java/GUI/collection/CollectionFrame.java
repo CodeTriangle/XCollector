@@ -1,7 +1,7 @@
-package darthivan.apps.xcol.GUI.collection;
+package GUI.collection;
 
-import darthivan.apps.xcol.GUI.create.CreateThingFrame;
-import darthivan.apps.xcol.Variables;
+import GUI.create.CreateThingFrame;
+import main.Variables;
 
 import javax.swing.*;
 import javax.swing.border.Border;

@@ -1,4 +1,4 @@
-package darthivan.apps.xcol.GUI.create;
+package GUI.create;
 
 public class CreateItemFrame {
     //Currently nothing here.

@@ -1,6 +1,6 @@
-package darthivan.apps.xcol.GUI.open;
+package GUI.open;
 
-import darthivan.apps.xcol.Variables;
+import main.Variables;
 
 import javax.swing.*;
 import java.awt.*;

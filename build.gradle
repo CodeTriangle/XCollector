@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'main.Main'
+
+// Jar Specifications
+jar {
+    baseName = 'XCollector'
+    version = '0.1'
+}
+
+// Wrapper Specifications
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

@@ -1,4 +1,4 @@
-package darthivan.apps.xcol.GUI.collection;
+package GUI.collection;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
