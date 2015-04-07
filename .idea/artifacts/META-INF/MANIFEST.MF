@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: C:\Users\Public\Richard\development\XCollect\.idea\artifac
+ ts
+Main-Class: darthivan.apps.xcol.Main
+
