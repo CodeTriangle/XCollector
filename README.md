@@ -3,7 +3,7 @@
 
 ***
 
-![Splash](assets/splash.png)
+![Splash](src/main/resources/splash.png)
 
 Have you ever just wanted to keep track of your collections? Well now you can. Introducing __XCollector__.
 
