@@ -1,7 +1,0 @@
-*.bat
-runme
-gradlew
-build/scripts/*
-.idea/*
-.idea/copyright/*
-.idea/scopes/*
