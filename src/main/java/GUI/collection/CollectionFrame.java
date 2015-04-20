@@ -1,6 +1,6 @@
 package GUI.collection;
 
-import GUI.create.CreateThingFrame;
+import GUI.create.CreateCollectionFrame;
 import main.Reference;
 
 import javax.swing.*;
@@ -12,20 +12,21 @@ import java.io.IOException;
 
 public class CollectionFrame extends JFrame implements ActionListener {
 
-    public JFrame createFrame;
+    public JFrame createCollectionFrame;
+    public JFrame createSeriesFrame;
+    public JFrame createItemFrame;
 
     public JPanel labelPanel;
     public JPanel listButtonPanel;
     public JPanel listPanel;
-    public JPanel topButtonPanel;
+    public JPanel buttonPanel;
     public JPanel collectionsButtonPanel;
     public JPanel seriesesButtonPanel;
     public JPanel itemsButtonPanel;
-    public JPanel itemButtonPanel;
     public JPanel itemPanel;
-    public JPanel buttonPanel;
     public JPanel imagePanel;
     public JPanel detailsPanel;
+    public JPanel detailsButtonPanel;
 
     public String collectionArray[];
     public String seriesArray[];
@@ -37,14 +38,17 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
     public JButton openCButton;
     public JButton deleteCButton;
+    public JButton createCButton;
 
     public JButton openSButton;
     public JButton deleteSButton;
+    public JButton createSButton;
 
     public JButton openIButton;
     public JButton deleteIButton;
+    public JButton createIButton;
 
-    public JButton createButton;
+    public JButton addImageButton;
 
     public JTextField titleField;
 
@@ -59,24 +63,23 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); // Set the look and feel to ♥Nimbus♥
 
+        createCollectionFrame = new CreateCollectionFrame("Create Collection...");
+
         collectionArray = new String[] {""}; // The place where all the collections are held.
         seriesArray = new String[] {""}; // The place where all the serieses in the collection are held.
         itemArray = new String[] {""}; // The place where the individual items in the collection are held.
 
-        createFrame = new CreateThingFrame("Create What?"); // This frame  Controls all creations of everything.
-
         labelPanel = new JPanel(); // Not used yet. TODO: Add labels to CollectionFrame.
-        listButtonPanel = new JPanel(); // Panel to hold all the lists and corresponding buttons
-        listPanel = new JPanel(); // Where all the lists are held for Collections, Serieses, and Items
-        topButtonPanel = new JPanel(); // Panel for all the create and delete buttons
-        collectionsButtonPanel = new JPanel(); // Buttons for the collections
-        seriesesButtonPanel = new JPanel(); // Buttons for the serieses
-        itemsButtonPanel = new JPanel(); // Buttons for the items
-        itemButtonPanel = new JPanel(new BorderLayout()); // A Panel to hold the item display and the buttons
-        itemPanel = new JPanel(); // Item display
-        buttonPanel = new JPanel(); // All the buttons.
+        listButtonPanel = new JPanel(new BorderLayout()); // Panel to hold all the lists and corresponding buttons
+        listPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // Where all the lists are held for Collections, Serieses, and Items
+        buttonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // Panel for all the create and delete buttons
+        collectionsButtonPanel = new JPanel(new FlowLayout()); // Buttons for the collections
+        seriesesButtonPanel = new JPanel(new FlowLayout()); // Buttons for the serieses
+        itemsButtonPanel = new JPanel(new FlowLayout()); // Buttons for the items
+        itemPanel = new JPanel(new GridLayout()); // Item display
         imagePanel = new SquareImagePanel(Reference.PLACEHOLDER_FILE_F, SquareImagePanel.TALL); // Picture of the item for item display
-        detailsPanel = new JPanel(); // Details of the item for item display
+        detailsPanel = new JPanel(new BorderLayout()); // Details of the item for item display
+        detailsButtonPanel = new JPanel(new GridLayout(1, 2));
 
         // Initiate the collection lists with type String.
         collectionList = new JList<>(collectionArray);
@@ -84,16 +87,33 @@ public class CollectionFrame extends JFrame implements ActionListener {
         itemList = new JList<>(itemArray);
 
         // Initiate the buttons with text and an Icon.
-        openCButton = new JButton("Open Collection", Reference.checkIcon);
-        deleteCButton = new JButton("Delete Collection", Reference.cancelIcon);
+        openCButton = new JButton(Reference.checkIcon);
+        deleteCButton = new JButton(Reference.cancelIcon);
+        createCButton = new JButton(Reference.addIcon);
 
-        openSButton = new JButton("Open Series", Reference.checkIcon);
-        deleteSButton = new JButton("Delete Series", Reference.cancelIcon);
+        openSButton = new JButton(Reference.checkIcon);
+        deleteSButton = new JButton(Reference.cancelIcon);
+        createSButton = new JButton(Reference.addIcon);
 
-        openIButton = new JButton("Open Item", Reference.checkIcon);
-        deleteIButton = new JButton("Delete Item", Reference.cancelIcon);
+        openIButton = new JButton(Reference.checkIcon);
+        deleteIButton = new JButton(Reference.cancelIcon);
+        createIButton = new JButton(Reference.addIcon);
 
-        createButton = new JButton("Create", Reference.addIcon);
+        addImageButton = new JButton("Add Image");
+
+        openCButton.setActionCommand("openc");
+        deleteCButton.setActionCommand("delc");
+        createCButton.setActionCommand("crec");
+
+        openSButton.setActionCommand("opens");
+        deleteSButton.setActionCommand("dels");
+        createSButton.setActionCommand("cres");
+
+        openIButton.setActionCommand("openi");
+        deleteIButton.setActionCommand("deli");
+        createIButton.setActionCommand("crei");
+
+        addImageButton.setActionCommand("addi");
 
         // Stuff for description panel.
         titleField = new JTextField("1900 Penny");
@@ -132,12 +152,6 @@ public class CollectionFrame extends JFrame implements ActionListener {
         titleField.setBorder(line);
         descriptionArea.setBorder(line);
 
-        itemButtonPanel.setLayout(new BorderLayout());
-        listPanel.setLayout(new GridLayout(1, 5, 10, 10));
-        itemPanel.setLayout(new GridLayout());
-        buttonPanel.setLayout(new FlowLayout());
-        detailsPanel.setLayout(new BorderLayout(10, 10));
-
         descriptionArea.setLineWrap(true); // Set the line wrap for description area.
 
         // Set window properties.
@@ -145,8 +159,28 @@ public class CollectionFrame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
+        this.setIconImage(Reference.frameIcon.getImage());
 
         // Add things to other things.
+        collectionsButtonPanel.add(openCButton);
+        collectionsButtonPanel.add(deleteCButton);
+        collectionsButtonPanel.add(createCButton);
+
+        seriesesButtonPanel.add(openSButton);
+        seriesesButtonPanel.add(deleteSButton);
+        seriesesButtonPanel.add(createSButton);
+
+        itemsButtonPanel.add(openIButton);
+        itemsButtonPanel.add(deleteIButton);
+        itemsButtonPanel.add(createIButton);
+
+        buttonPanel.add(collectionsButtonPanel);
+        buttonPanel.add(seriesesButtonPanel);
+        buttonPanel.add(itemsButtonPanel);
+
+        listButtonPanel.add(listPanel, BorderLayout.CENTER);
+        listButtonPanel.add(buttonPanel, BorderLayout.SOUTH);
+
         listPanel.add(collectionList);
         listPanel.add(seriesList);
         listPanel.add(itemList);
@@ -154,45 +188,90 @@ public class CollectionFrame extends JFrame implements ActionListener {
         itemPanel.add(imagePanel);
         itemPanel.add(detailsPanel);
 
-        buttonPanel.add(createButton);
-
         detailsPanel.add(titleField, BorderLayout.NORTH);
         detailsPanel.add(descriptionArea, BorderLayout.CENTER);
         detailsPanel.add(collectedBox, BorderLayout.SOUTH);
 
-        itemButtonPanel.add(itemPanel, BorderLayout.CENTER);
-        itemButtonPanel.add(buttonPanel, BorderLayout.SOUTH);
-
-        this.add(listPanel);
-        this.add(itemButtonPanel);
+        this.add(listButtonPanel);
+        this.add(itemPanel);
 
         openCButton.addActionListener(this);
         deleteCButton.addActionListener(this);
-        createButton.addActionListener(this);
+        createCButton.addActionListener(this);
+
+        openSButton.addActionListener(this);
+        deleteSButton.addActionListener(this);
+        createSButton.addActionListener(this);
+
+        openIButton.addActionListener(this);
+        deleteIButton.addActionListener(this);
+        createIButton.addActionListener(this);
     }
 
     // Functions for button clicks.
     private void openCFunction() {
-        Reference.pressedMessage(openCButton.getText());
+        Reference.pressedMessage(openCButton.getActionCommand());
     }
 
-    private void deleteFunction() {
-        System.out.println("Delete Button Pressed");
+    private void deleteCFunction() {
+        Reference.pressedMessage(deleteCButton.getActionCommand());
     }
 
-    private void createFunction() {
-        createFrame.setVisible(true);
-        Reference.pressedMessage(createButton.getText());
+    private void createCFunction() {
+        Reference.pressedMessage(createCButton.getActionCommand());
+        createCollectionFrame.setVisible(true);
+    }
+
+    private void openSFunction() {
+        Reference.pressedMessage(openSButton.getActionCommand());
+    }
+
+    private void deleteSFunction() {
+        Reference.pressedMessage(deleteSButton.getActionCommand());
+    }
+
+    private void createSFunction() {
+        Reference.pressedMessage(createSButton.getActionCommand());
+    }
+
+    private void openIFunction() {
+        Reference.pressedMessage(openIButton.getActionCommand());
+    }
+
+    private void deleteIFunction() {
+        Reference.pressedMessage(deleteIButton.getActionCommand());
+    }
+
+    private void createIFunction() {
+        Reference.pressedMessage(createIButton.getActionCommand());
+    }
+
+    private void addImageFunction() {
+        Reference.pressedMessage(addImageButton.getActionCommand());
     }
 
     // Function for events.
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Open Collection"))
+        if (e.getActionCommand().equals("openc"))
             openCFunction();
-        else if (e.getActionCommand().equals("Delete"))
-            deleteFunction();
-        else if (e.getActionCommand().equals("Create"))
-            createFunction();
+        else if (e.getActionCommand().equals("delc"))
+            deleteCFunction();
+        else if (e.getActionCommand().equals("crec"))
+            createCFunction();
+        else if (e.getActionCommand().equals("opens"))
+            openSFunction();
+        else if (e.getActionCommand().equals("dels"))
+            deleteSFunction();
+        else if (e.getActionCommand().equals("cres"))
+            createSFunction();
+        else if (e.getActionCommand().equals("openi"))
+            openIFunction();
+        else if (e.getActionCommand().equals("deli"))
+            deleteIFunction();
+        else if (e.getActionCommand().equals("crei"))
+            createIFunction();
+        else if (e.getActionCommand().equals("addi"))
+            addImageFunction();
     }
 }

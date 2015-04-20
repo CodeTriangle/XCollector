@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@Deprecated
 public class CreateThingFrame extends JFrame implements ActionListener {
     JFrame createCollectionFrame;
 

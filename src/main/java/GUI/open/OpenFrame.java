@@ -22,6 +22,7 @@ public class OpenFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(new BorderLayout());
+        this.setIconImage(Reference.frameIcon.getImage());
 
         this.add(openPanel); // Put the splash image up.
     }

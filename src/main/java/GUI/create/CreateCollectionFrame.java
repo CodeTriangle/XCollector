@@ -65,6 +65,7 @@ public class CreateCollectionFrame extends JFrame implements ActionListener {
         this.pack();
         this.setSize(500, this.getHeight());
         this.setLocationRelativeTo(null);
+        this.setIconImage(Reference.frameIcon.getImage());
 
         // Add action listener.
         okButton.addActionListener(this);
@@ -75,15 +76,18 @@ public class CreateCollectionFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("OK")) {
-            if (!new File(Reference.DATA_DIR + "\\" + titleField.getText()).exists()) {
-                new File(Reference.DATA_DIR + "\\" + titleField.getText()).mkdir();
-                System.out.print("\"" + titleField.getText() + "\" collection created.");
+            String t = titleField.getText();
+            if (!new File(Reference.DATA_DIR + "\\" + t).exists()) {
+                new File(Reference.DATA_DIR + "\\" + t).mkdir();
+                System.out.printf("\"%s\" collection created.",t); System.out.println();
+                Reference.closedMessage("CreateCollectionFrame");
                 this.setVisible(false);
             }
-            else System.out.print("Collection already exists. Please retry.");
+            else System.out.println("Collection already exists. Please retry.");
         }
-        else if (e.getActionCommand().equals("Cancel"))
+        else if (e.getActionCommand().equals("Cancel")) {
             this.setVisible(false);
             Reference.closedMessage("CreateCollectionFrame");
+        }
     }
 }

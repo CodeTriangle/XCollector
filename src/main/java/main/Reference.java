@@ -14,6 +14,7 @@ public class Reference {
     public static final String ADD_FILE = ASSET_DIR + "/add.png";
     public static final String CANCEL_FILE = ASSET_DIR + "/cancel.png";
     public static final String CHECK_FILE = ASSET_DIR + "/check.png";
+    public static final String FRAME_FILE = ASSET_DIR + "/.png";
 
     public static final File USER_DIR_F = new File(USER_DIR);
     public static final File ASSET_DIR_F = new File(ASSET_DIR);
@@ -24,23 +25,28 @@ public class Reference {
     public static final File ADD_FILE_F = new File(ADD_FILE);
     public static final File CANCEL_FILE_F = new File(CANCEL_FILE);
     public static final File CHECK_FILE_F = new File(CHECK_FILE);
+    public static final File FRAME_FILE_F = new File(FRAME_FILE);
 
     public static ImageIcon addIcon = new ImageIcon(ADD_FILE);
     public static ImageIcon cancelIcon = new ImageIcon(CANCEL_FILE);
     public static ImageIcon checkIcon = new ImageIcon(CHECK_FILE);
+    public static ImageIcon frameIcon = new ImageIcon(FRAME_FILE);
 
     public static final Font TNR = new Font("Times New Roman", Font.PLAIN, 15);
     public static final Font TNR_LARGE = new Font("Times New Roman", Font.BOLD, 25);
 
     public static void pressedMessage (String s) {
-        System.out.printf("%s pressed", s);
+        System.out.printf("Button with command \"%s\" pressed.", s);
+        System.out.println();
     }
 
     public static void activeMessage (String s) {
-        System.out.printf("%s active", s);
+        System.out.printf("Window with name \"%s\" active.", s);
+        System.out.println();
     }
 
     public static void closedMessage (String s) {
-        System.out.printf("%s closed", s);
+        System.out.printf("Window with name \"%s\" closed.", s);
+        System.out.println();
     }
 }
