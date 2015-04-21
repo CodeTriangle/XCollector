@@ -8,6 +8,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 public class CollectionFrame extends JFrame implements ActionListener {
@@ -64,10 +65,16 @@ public class CollectionFrame extends JFrame implements ActionListener {
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); // Set the look and feel to ♥Nimbus♥
 
         createCollectionFrame = new CreateCollectionFrame("Create Collection...");
+        // The place where all the collections are held.
+        collectionArray = new String[Reference.DATA_DIR_F.listFiles().length];
+        System.out.println("Files in data:");
+        for (int i = 0; i < Reference.DATA_DIR_F.listFiles().length; i++) {
+            collectionArray[i] = Reference.DATA_DIR_F.listFiles()[i].getName();
+            System.out.println(Reference.DATA_DIR_F.listFiles()[i].getName());
+        }
 
-        collectionArray = new String[] {""}; // The place where all the collections are held.
-        seriesArray = new String[] {""}; // The place where all the serieses in the collection are held.
-        itemArray = new String[] {""}; // The place where the individual items in the collection are held.
+        seriesArray = new String[1]; // The place where all the serieses in the collection are held.
+        itemArray = new String[1]; // The place where the individual items in the collection are held.
 
         labelPanel = new JPanel(); // Not used yet. TODO: Add labels to CollectionFrame.
         listButtonPanel = new JPanel(new BorderLayout()); // Panel to hold all the lists and corresponding buttons
@@ -211,6 +218,15 @@ public class CollectionFrame extends JFrame implements ActionListener {
     // Functions for button clicks.
     private void openCFunction() {
         Reference.pressedMessage(openCButton.getActionCommand());
+        File f = new File(Reference.DATA_DIR + "/" + collectionList.getSelectedValue());
+        System.out.println(f.getAbsolutePath());
+        DefaultListModel<String> model = new DefaultListModel<>();
+        System.out.println("Files in " + collectionList.getSelectedValue());
+        for (int i = 0; i < f.listFiles().length; i++) {
+            model.addElement(f.listFiles()[i].getName());
+            System.out.println(f.listFiles()[i].getName());
+        }
+        seriesList.setModel(model);
     }
 
     private void deleteCFunction() {
