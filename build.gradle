@@ -8,7 +8,7 @@ task xcol (dependsOn: ['build', 'run'])
 
 repositories {
     flatDir {
-        dirs 'libs'
+        dirs 'dependencies'
     }
 }
 
