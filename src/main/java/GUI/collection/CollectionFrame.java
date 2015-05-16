@@ -59,7 +59,9 @@ public class CollectionFrame extends JFrame implements ActionListener {
 
     public Border line;
 
-    public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
+    public String currentCollection, currentSeries, currentItem;
+
+    public CollectionFrame(String title) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException, InterruptedException {
         super(title);
 
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); // Set the look and feel to ♥Nimbus♥
@@ -215,27 +217,36 @@ public class CollectionFrame extends JFrame implements ActionListener {
         createIButton.addActionListener(this);
     }
 
+    public void regenerateList(JList<String> list, File parentDir) {
+        DefaultListModel<String> model = new DefaultListModel<>();
+
+        for (int i = 0; i < parentDir.listFiles().length; i++) {
+            model.addElement(parentDir.listFiles()[i].getName());
+            System.out.println(parentDir.listFiles()[i].getName());
+        }
+        list.setModel(model);
+    }
+
     // Functions for button clicks.
     private void openCFunction() {
         Reference.pressedMessage(openCButton.getActionCommand());
-        File f = new File(Reference.DATA_DIR + "/" + collectionList.getSelectedValue());
-        System.out.println(f.getAbsolutePath());
-        DefaultListModel<String> model = new DefaultListModel<>();
+        currentCollection = Reference.DATA_DIR + "/" + collectionList.getSelectedValue();
+        File f = new File(currentCollection);
         System.out.println("Files in " + collectionList.getSelectedValue());
-        for (int i = 0; i < f.listFiles().length; i++) {
-            model.addElement(f.listFiles()[i].getName());
-            System.out.println(f.listFiles()[i].getName());
-        }
-        seriesList.setModel(model);
+        regenerateList(seriesList, new File(currentCollection));
     }
 
     private void deleteCFunction() {
         Reference.pressedMessage(deleteCButton.getActionCommand());
+        File f = new File(Reference.DATA_DIR + "/" + collectionList.getSelectedValue());
+        f.delete();
+        regenerateList(collectionList, Reference.DATA_DIR_F);
     }
 
     private void createCFunction() {
         Reference.pressedMessage(createCButton.getActionCommand());
         createCollectionFrame.setVisible(true);
+
     }
 
     private void openSFunction() {

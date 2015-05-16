@@ -69,7 +69,7 @@ set CMD_LINE_ARGS=%$
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\XCollector-0.1.jar
+set CLASSPATH=%APP_HOME%\lib\XCollector-0.1.jar;%APP_HOME%\lib\json-simple-1.1.1.jar
 
 @rem Execute XCollect
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %X_COLLECT_OPTS%  -classpath "%CLASSPATH%" main.Main %CMD_LINE_ARGS%

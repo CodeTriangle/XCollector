@@ -6,6 +6,16 @@ mainClassName = 'main.Main'
 // Run XCollector
 task xcol (dependsOn: ['build', 'run'])
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile name: 'json-simple-1.1.1'
+}
+
 // Jar Specifications
 jar {
     baseName = 'XCollector'

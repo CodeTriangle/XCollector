@@ -9,6 +9,7 @@ public class Reference {
     public static final String SOURCE_DIR = USER_DIR + "/java";
     public static final String ASSET_DIR = USER_DIR + "/resources";
     public static final String DATA_DIR = "data";
+    public static final String COLLECTION_FILE = DATA_DIR + "/data.xc";
     public static final String SPLASH_FILE = ASSET_DIR + "/splash.png";
     public static final String PLACEHOLDER_FILE = ASSET_DIR + "/placeholder.png";
     public static final String ADD_FILE = ASSET_DIR + "/add.png";
@@ -20,6 +21,7 @@ public class Reference {
     public static final File ASSET_DIR_F = new File(ASSET_DIR);
     public static final File SOURCE_DIR_F = new File(SOURCE_DIR);
     public static final File DATA_DIR_F = new File(DATA_DIR);
+    public static final File COLLECTION_FILE_F = new File(COLLECTION_FILE);
     public static final File SPLASH_FILE_F = new File(SPLASH_FILE);
     public static final File PLACEHOLDER_FILE_F = new File(PLACEHOLDER_FILE);
     public static final File ADD_FILE_F = new File(ADD_FILE);
